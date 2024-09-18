@@ -33,7 +33,7 @@ object SlickTables {
     def pizzaId = column[Long]("pizza_id")
     def ingredientId = column[Long]("ingredient_id")
 
-    override def *  = (id, pizzaid, ingredientid) <> (PizzaIngredient.tupled, PizzaIngredient.unapply)
+    override def *  = (id, pizzaId, ingredientId) <> (PizzaIngredient.tupled, PizzaIngredient.unapply)
   }
   lazy val pizzaIngredientTable = TableQuery[PizzaIngredientTable]
 }
