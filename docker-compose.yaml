@@ -1,0 +1,17 @@
+version: '3'
+services:
+  database:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - '5432:5432'
+    volumes:
+      - database:/var/lib/postgresql11/data
+      - ./database/init-scripts.sql:/docker-entrypoint-initdb.d/scripts.sql
+
+volumes:
+  database:
+    driver: local
