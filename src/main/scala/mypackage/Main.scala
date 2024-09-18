@@ -56,7 +56,7 @@ object Main {
     Thread.sleep(200)
   }
 
-  def deletePizza(): Unit = {
+  def deletePizzas(): Unit = {
     Connection.db.run(SlickTables.pizzaTable.filter(_.name.like("%formaggi%")).delete)
     Thread.sleep(200)
   }
