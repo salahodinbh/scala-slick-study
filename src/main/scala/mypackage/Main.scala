@@ -20,7 +20,7 @@ object Main {
     val futureId: Future[Int] = Connection.db.run(queryDescription)
 
     futureId.onComplete {
-      case Success(newPizzaId) => println(s"Success, new id: $newPizzaId")
+      case Success(recordsAffected) => println(s"Success, records affected: $recordsAffected")
       case Failure(e) => println(s"Execution failed: $e")
     }
     //Apparently the executor finishes before applying the statement, since it is a test a sleep should do
@@ -50,7 +50,7 @@ object Main {
     val futureId: Future[Int] = Connection.db.run(queryDescriptor)
 
     futureId.onComplete {
-      case Success(newPizzaId) => println(s"Success, new id: $newPizzaId")
+      case Success(recordsAffected) => println(s"Success, records affected: $recordsAffected")
       case Failure(e) => println(s"Execution failed: $e")
     }
     Thread.sleep(200)
